@@ -1,0 +1,56 @@
+.section {
+  padding: 30px 0;
+}
+
+.row .col {
+  float: left;
+  box-sizing: border-box;
+  padding: 0 12px;
+  margin-top: 8px;
+}
+
+.skill-wrapper {
+  background-color: #424242;
+  color: #fff;
+  width: 100%;
+  height: auto;
+  padding: 25px 20px;
+}
+
+.skill-title {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.skill-progress-div {
+  margin-bottom: 22px;
+}
+
+.skill-progress-div p span {
+  float: right;
+}
+
+.skill-progress {
+  position: relative;
+  background-color: #1c1c1c;
+  margin: 15px 0;
+  height: 3px;
+  z-index: 0;
+  overflow: visible;
+}
+
+.progress .determinate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.progress .determinate i {
+  position: absolute;
+  right: 0%;
+  top: -7px;
+  color: #fff;
+  font-size: 18px;
+}

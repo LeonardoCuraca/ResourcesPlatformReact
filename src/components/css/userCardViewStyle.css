@@ -1,0 +1,60 @@
+.profile {
+  max-width: 90%;
+  margin-top: 15px;
+  padding: 33px 33px 22px;
+  box-shadow: 0 0 5px rgba(0,0,0,.4);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-profile {
+  margin-bottom: 20px;
+}
+
+.photo-profile img {
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0,0,0,.4);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.download-resume {
+  padding: 17px 5px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,.4);
+}
+
+.text-download {
+  padding-left: 8px;
+}
+
+.info-profile h3 {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.info-profile {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.info-profile .userName {
+  color: red;
+}
+
+ul {
+  list-style: none;
+}
+
+.info-profile li {
+  padding-bottom: 10px;
+}
+
+.title-info {
+  color: #757575;
+  display: inline-block;
+  margin-right: 8px;
+}
