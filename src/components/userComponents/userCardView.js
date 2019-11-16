@@ -13,7 +13,7 @@ export default class UserCardView extends Component {
 
   componentWillMount(){
     var id = 3;
-    axios.get('http://localhost:8080/api/usuarios/' + id + '/').then(res => {
+    axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/').then(res => {
       console.log(res.data);
       this.setState({
         userData: res.data,

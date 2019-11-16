@@ -41,7 +41,7 @@ class ImageUpload extends Component {
 
   saveImageOnDataBase(url) {
     var id = 3;
-    axios.get('http://localhost:8080/api/usuarios/' + id + '/').then(res => {
+    axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/').then(res => {
       let datos = {
         usunombre: res.data.usunombre,
         usuapellido: res.data.usuapellido,
@@ -53,7 +53,7 @@ class ImageUpload extends Component {
         usucelular: res.data.usucelular,
       }
       console.log(datos.usufoto);
-      axios.put('http://localhost:8080/api/usuarios/' + id + '/', datos);
+      axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/', datos);
     });
   }
 
