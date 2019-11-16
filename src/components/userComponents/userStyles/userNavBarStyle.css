@@ -1,5 +1,5 @@
 :root {
-  --PrimaryColor: #424242;
+  --PrimaryColor: #181b27;
 }
 
 .leftpart {
@@ -12,7 +12,7 @@
 }
 
 .logo_wrap {
-  background-color: #424242;
+  background-color: var(--PrimaryColor);
   padding: 50px 20px;
   width: 100%;
   float: left;
@@ -24,6 +24,7 @@
 
 .logo_wrap a img {
   vertical-align: middle;
+  width: 100%;
 }
 
 .menu_list_wrap {
@@ -42,7 +43,7 @@
   text-align: center;
 }
 
-.menu_list_wrap ul li a {
+.menu_list_wrap ul li a, button {
   text-decoration: none;
   color: #fff;
   font-family: "Montserrat";
@@ -53,10 +54,7 @@
   padding-bottom: 40px;
 }
 
-.rightpart {
-  width: 100%;
-  height: auto;
-  float: left;
-  padding-left: 300px;
-  box-sizing: border-box;
+.menu_list_wrap ul li button {
+  background: none;
+  border: none;
 }

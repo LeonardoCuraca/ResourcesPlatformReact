@@ -9,10 +9,13 @@
 
 .photo-profile {
   margin-bottom: 20px;
+  max-height: 250px;
+  align-items: center;
 }
 
 .photo-profile img {
   width: 100%;
+  height: 250px;
   box-shadow: 0 0 5px rgba(0,0,0,.4);
 }
 

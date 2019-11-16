@@ -1,7 +1,7 @@
 import React from 'react';
-import './css/loginStyle.css';
+import '../css/loginStyle.css';
 
-const LoginPage = () => {
+const LoginForm = () => {
   return (
     <div className="box">
       <h2>Iniciar Sesión</h2>
@@ -21,4 +21,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginForm;
