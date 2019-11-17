@@ -23,59 +23,17 @@ export default class UserCardView extends Component {
 
   render() {
     return (
-      <div className="profile">
-        <div className="row">
-          <div className="col-sm-4">
-            <div className="photo-profile">
-              <img src={this.state.userData.usufoto} />
-            </div>
-            <a href="cv/cv-1.pdf" target="cv">
-              <div className="download-resume">
-                <i className="fa fa-cloud-download" aria-hidden="true" />
-                <span className="text-download">SUBIR CV</span>
-              </div>
-            </a>
-          </div>
-          <div className="col-sm-8">
-            <div className="info-profile">
-              <h2 className="userName">{JSON.parse(localStorage.getItem("userInfo")).name}</h2>
-              <h3>ESPECIALIDAD POR ESPECIFICAR</h3>
-              <p>{this.state.userData.usudetalle}</p>
-              <div className="row">
-                <div className="col-sm-6">
-                  <ul className="ul-info">
-                    <li className="li-info">
-                      <span className="title-info">Edad</span>
-                      <span className="info">Por especificar</span>
-                    </li>
-                    <li className="li-info">
-                      <span className="title-info">Dirección</span>
-                      <span className="info">{this.state.userData.usudireccion}</span>
-                    </li>
-                    <li className="li-info">
-                      <span className="title-info">Correo</span>
-                      <span className="info">{JSON.parse(localStorage.getItem("userInfo")).email}</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-sm-6">
-                  <ul className="ul-info">
-                    <li className="li-info">
-                      <span className="title-info">Celular</span>
-                      <span className="info">{this.state.userData.usucelular}</span>
-                    </li>
-                    <li className="li-info">
-                      <span className="title-info">SitioWeb</span>
-                      <span className="info">Por especificar</span>
-                    </li>
-                    <li className="li-info">
-                      <span className="title-info">Nacionalidad</span>
-                      <span className="info">Por especificar</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+      <div className="">
+        <div className="fb-profile">
+          <img align="left" className="fb-image-lg" src="http://www.fbcovers.alegriphotos.com/covers/Metal-blur1781.jpg" alt="Profile image example" />
+          <img align="left" className="fb-image-profile thumbnail" src={JSON.parse(localStorage.getItem("userInfo")).picture} alt="Profile image example" />
+          <div className="fb-profile-text">
+            <h1>{JSON.parse(localStorage.getItem("userInfo")).name}</h1>
+            <p>{this.state.userData.usudetalle}</p>
+            <p>Campo sin especificar</p>
+            <p>Correo: {JSON.parse(localStorage.getItem("userInfo")).email}</p>
+            <p>Campo sin especificar</p>
+            <p>Campo sin especificar</p>
           </div>
         </div>
       </div>

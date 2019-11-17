@@ -24,7 +24,7 @@ export default class Facebook extends Component {
       name: '',
       email: '',
       detalle: '',
-      picture: 'https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/patricio.jpg?alt=media&token=2f00f452-e991-485e-b160-1aa649ef7ac4',
+      picture: '',
       business: []
     }
   }
@@ -36,6 +36,7 @@ export default class Facebook extends Component {
         userID: response.userID,
         name: response.name,
         email: response.email,
+        picture: response.picture.data.url,
       });
       localStorage.setItem("userInfo", JSON.stringify(this.state));
   }
@@ -52,7 +53,7 @@ export default class Facebook extends Component {
           <FacebookLogin
             appId="711624936017696"
             autoLoad={true}
-            fields="name,email,picture"
+            fields="name,email,picture.type(large),cover"
             callback={this.responseFacebook}
           />
         </div>
