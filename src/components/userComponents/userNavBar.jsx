@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './userStyles/userNavBarStyle.css';
 import {Redirect} from 'react-router-dom';
-import {FB} from 'react-facebook-login';
 export default class UserCardView extends Component {
 
   cerrarSesion(){
@@ -24,7 +23,7 @@ export default class UserCardView extends Component {
                 <li><a href="#Empleos">Mis Empleos</a></li>
                 <li><a href="/lookForJobs">Buscar Empleo</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="/login"><button onClick={(e)=>{e.preventDefault(); window.FB.logout()}}>Cerrar Sesión</button></a></li>
+                <li><a href="/login"><button onClick={() => this.cerrarSesion()}>Cerrar Sesión</button></a></li>
               </ul>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FacebookLogin, {FB} from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login';
 import CanvasJSReact from '../../canvasjs.react';
 
 import {
@@ -53,7 +53,7 @@ export default class Facebook extends Component {
           <FacebookLogin
             appId="711624936017696"
             autoLoad={true}
-            fields="name,email,picture.type(large),cover"
+            fields="name,email,picture.type(large)"
             callback={this.responseFacebook}
           />
         </div>
