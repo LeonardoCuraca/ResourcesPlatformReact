@@ -51,7 +51,7 @@ export default class Facebook extends Component {
       usuemail: this.email,
       usufoto: this.picture,
     }
-    axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/', datos).then(res => {
+    axios.post('https://businessmanagerwebservice.herokuapp.com/api/usuarios/', datos).then(res => {
       console.log(res);
     });
   }
