@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin, {FB} from 'react-facebook-login';
 import CanvasJSReact from '../../canvasjs.react';
 
 import {

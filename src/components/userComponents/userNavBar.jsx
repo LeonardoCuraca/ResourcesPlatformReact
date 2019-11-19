@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './userStyles/userNavBarStyle.css';
 import {Redirect} from 'react-router-dom';
+import {FB} from 'react-facebook-login';
 export default class UserCardView extends Component {
 
   cerrarSesion(){
