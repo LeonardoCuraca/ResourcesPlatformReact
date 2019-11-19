@@ -52,7 +52,7 @@ export default class Facebook extends Component {
         <div className="centerDiv">
           <FacebookLogin
             appId="711624936017696"
-            autoLoad={true}
+            autoLoad={false}
             fields="name,email,picture.type(large)"
             callback={this.responseFacebook}
           />
