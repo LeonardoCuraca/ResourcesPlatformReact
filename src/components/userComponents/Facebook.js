@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import FacebookLogin from 'react-facebook-login';
 import CanvasJSReact from '../../canvasjs.react';
 
@@ -38,7 +39,21 @@ export default class Facebook extends Component {
         email: response.email,
         picture: response.picture.data.url,
       });
+      this.registerUser();
       localStorage.setItem("userInfo", JSON.stringify(this.state));
+  }
+
+  registerUser() {
+    console.log(this.state.userID);
+    let datos = {
+      usuid: this.state.userID,
+      usunombre: this.state.name,
+      usuemail: this.email,
+      usufoto: this.picture,
+    }
+    axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/', datos).then(res => {
+      console.log(res);
+    });
   }
 
   render() {
