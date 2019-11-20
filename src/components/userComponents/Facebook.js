@@ -33,7 +33,6 @@ export default class Facebook extends Component {
   responseFacebook = response => {
       console.log(response);
       this.setState({
-        isLoggedIn: true,
         userID: response.userID,
         name: response.name,
         email: response.email,
@@ -41,15 +40,21 @@ export default class Facebook extends Component {
       });
       this.registerUser();
       localStorage.setItem("userInfo", JSON.stringify(this.state));
+      this.setState({
+        isLoggedIn: true,
+      });
   }
 
   registerUser() {
     console.log(this.state.userID);
+    console.log(this.state.name);
+    console.log(this.state.email);
+    console.log(this.state.picture);
     let datos = {
       usuid: this.state.userID,
       usunombre: this.state.name,
-      usuemail: this.email,
-      usufoto: this.picture,
+      usuemail: this.state.email,
+      usufoto: this.state.picture,
     }
     axios.post('https://businessmanagerwebservice.herokuapp.com/api/usuarios/', datos).then(res => {
       console.log(res);
@@ -60,7 +65,7 @@ export default class Facebook extends Component {
 
     let fbContent;
 
-    if(JSON.parse(localStorage.getItem("userInfo") != null)) {
+    if(this.state.isLoggedIn == true) {
       return <Redirect to={{pathname: '/userProfile'}} />
     } else {
       fbContent = (

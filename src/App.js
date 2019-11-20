@@ -15,12 +15,14 @@ import UserProfile from "./components/userProfile";
 import MyBusiness from "./components/myBusiness";
 import QRCode from "./components/qrCodeGenerator";
 import Dashboard from "./components/dashboard";
+import MainPage from "./components/MainPage";
 
 class App extends Component {
 
   render() {
     return (
       <Router>
+        <Route path="/main" component={MainPage} />
         <Route path="/login" component={Facebook} />
         <Route path="/qrCode" component={QRCode} />
         <Route path="/userProfile" component={UserProfile} />
