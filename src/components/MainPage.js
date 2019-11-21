@@ -31,7 +31,7 @@ const MainPage = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="titlepage">
-                  <h2>What’s New In Web Hosting</h2>
+                  <h2>Supervisa y Gestiona tu Negocio</h2>
                 </div>
               </div>
             </div>
@@ -63,87 +63,47 @@ const MainPage = () => {
             <div className="row">
               <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div className="Services-box">
-                  <i><img src="images/service1.png" alt="#" /></i>
-                  <h3> Shared Hosting</h3>
-                  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                  <i><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/projectImages%2Fstock.png?alt=media&token=391e6470-7f1f-40f6-8111-811c2b452857" alt="#" /></i>
+                  <h3>Maneja tu propio Stock</h3>
+                  <p>Digitaliza todos los productos de tu negocio y otorga permisos a tus colaboradores.</p>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div className="Services-box">
-                  <i><img src="images/service2.png" alt="#" /></i>
-                  <h3>Dedicated Hosting</h3>
-                  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                  <i><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/projectImages%2Fpublish.png?alt=media&token=49418885-3954-40f0-92a1-40c1d08c3da7" alt="#" /></i>
+                  <h3>Publica tu Negocio</h3>
+                  <p>Permite que otras personas conozcan tu negocio y puedan postular a un empleao en él.</p>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div className="Services-box">
-                  <i><img src="images/service3.png" alt="#" /></i>
-                  <h3>Domain Registration</h3>
-                  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                  <i><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/projectImages%2Femployees.png?alt=media&token=9fe60555-2736-4b89-803e-bd74c1db48d2" alt="#" /></i>
+                    <h3>Recursos Humanos</h3>
+                  <p>Realiza seguimientos de puntualidad de tus empleados y contrata personas dispuestas a trabajar contigo a través de solicitudes.</p>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div className="Services-box">
-                  <i><img src="images/service4.png" alt="#" /></i>
-                  <h3>VPS Hosting</h3>
-                  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                  <i><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/projectImages%2Fchart.png?alt=media&token=567d3fcb-680b-43c0-8867-68c4effacb7f" alt="#" /></i>
+                  <h3>Reportes</h3>
+                  <p>Supervisa las ventas totales de tu negocio, el rendimiento de tus empleados, etc.</p>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div className="Services-box">
-                  <i><img src="images/service5.png" alt="#" /></i>
-                  <h3>Cloud Hosting</h3>
-                  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                  <i><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/projectImages%2Fmovil.png?alt=media&token=e01b9e3d-b524-412c-9c39-c623e6cdb469" alt="#" /></i>
+                  <h3>Trabaja con tu Móvil</h3>
+                  <p>Con el App de Business Manager tus empleados podran registrar su asistencia y realizar las ventas de tu Negocio</p>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div className="Services-box">
-                  <i><img src="images/service6.png" alt="#" /></i>
-                  <h3>Reseller Hosting</h3>
-                  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                  <i><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/projectImages%2Fprofile.png?alt=media&token=db678a69-85bd-4d7c-9cf8-348452068561" alt="#" /></i>
+                  <h3>Personaliza tu Perfil</h3>
+                  <p>Presentate a tí y a tu Negocio al Mundo. Tu exito dependerá de tu imagen.</p>
                 </div>
               </div>
               <a className="read_more" href="#">Read More</a>
-            </div>
-          </div>
-        </div>
-        {/* end Servicess */}
-        {/* why */}
-        <div id="why" className="why">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="titlepage">
-                  <h2>Why you should choose </h2>
-                  <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div id="box_ho" className="why-box">
-                  <i><img src="images/why1.png" alt="#" /></i>
-                  <h3>Powerful Features</h3>
-                  <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                </div>
-                <a className="read_more bg" href="#">Read More</a>
-              </div>
-              <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div className="why-box">
-                  <i><img src="images/why2.png" alt="#" /></i>
-                  <h3>Totaly Optimised</h3>
-                  <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                </div>
-                <a className="read_more bg" href="#">Read More</a>
-              </div>
-              <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div className="why-box">
-                  <i><img src="images/why3.png" alt="#" /></i>
-                  <h3>Worldwide Support</h3>
-                  <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                </div>
-                <a className="read_more bg" href="#">Read More</a>
-              </div>
             </div>
           </div>
         </div>

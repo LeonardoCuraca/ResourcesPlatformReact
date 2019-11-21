@@ -17,10 +17,13 @@ body {
 }
 
 .fb-profile-text {
-
   margin-left: 27%;
 }
 
 .fb-profile-text h1 {
   font-weight: 700;
+}
+
+.profileContainer {
+  margin-top: -19px;
 }

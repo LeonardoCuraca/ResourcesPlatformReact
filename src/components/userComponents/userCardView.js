@@ -23,7 +23,7 @@ export default class UserCardView extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="profileContainer">
         <div className="fb-profile">
           <img align="left" className="fb-image-lg" src="http://www.fbcovers.alegriphotos.com/covers/Metal-blur1781.jpg" alt="Profile image example" />
           <img align="left" className="fb-image-profile thumbnail" src={JSON.parse(localStorage.getItem("userInfo")).picture} alt="Profile image example" />
