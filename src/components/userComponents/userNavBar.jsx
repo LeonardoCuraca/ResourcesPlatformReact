@@ -5,7 +5,6 @@ export default class UserCardView extends Component {
 
   cerrarSesion(){
     localStorage.removeItem("userInfo");
-    return <Redirect to={{pathname: '/login'}} />
   }
 
   render() {
@@ -23,7 +22,7 @@ export default class UserCardView extends Component {
                 <li><a href="#Empleos">Mis Empleos</a></li>
                 <li><a href="/lookForJobs">Buscar Empleo</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="/login"><button onClick={() => this.cerrarSesion()}>Cerrar Sesión</button></a></li>
+                <li><a href="/"><button onClick={() => this.cerrarSesion()}>Cerrar Sesión</button></a></li>
               </ul>
             </div>
           </div>

@@ -319,6 +319,7 @@ button {
      background-repeat: no-repeat;
      padding-bottom: 120px;
      padding-top: 120px;
+     height: 100vh;
      border-radius: 10% 0 10% 0;
 }
 
@@ -344,7 +345,7 @@ button {
      padding: 40px 0;
 }
 
-.text-bg a {
+.text-bg button {
      font-size: 16px;
      background-color: #fff;
      color: #000;
@@ -356,7 +357,7 @@ button {
      text-transform: uppercase;
 }
 
-.text-bg a:hover {
+.text-bg button:hover {
      background-color: #000;
      color: #fff;
 }
