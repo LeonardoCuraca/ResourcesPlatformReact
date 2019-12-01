@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import NewBusinessForm from './NewBusinessForm';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect
+} from 'react-router-dom';
 import './businessStyles/businessCardViewStyle.css';
 
 export default class UserCardView extends Component {
@@ -8,11 +16,22 @@ export default class UserCardView extends Component {
     super(props);
     this.state = {
         business: [],
+        showBusinessForm: false,
     }
   }
 
+  toggleBusinessForm() {
+    this.setState({
+         showBusinessForm: !this.state.showBusinessForm
+    });
+  }
+
+  showBusinessInfo(negid) {
+    console.log(negid);
+  }
+
   componentWillMount(){
-    var id = 3;
+    var id = JSON.parse(localStorage.getItem("userInfo")).userID;
     axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/').then(res => {
       console.log(res.data);
       this.setState({
@@ -23,25 +42,30 @@ export default class UserCardView extends Component {
 
   render() {
     return (
-      <div>
+      <div  className="businessContainer">
+        <button className="NewBusinessFormButton" onClick={this.toggleBusinessForm.bind(this)}>Crear Nuevo Negocio</button>
+        {this.state.showBusinessForm ?
+          <NewBusinessForm
+                    closeNewBusinessForm={this.toggleBusinessForm.bind(this)}
+          />
+          : null
+        }
         {this.state.business.map(business => {
+          var url = "/myBusiness/" + business.negid;
           return(
-            <div className="businessCard">
-              <div className="back-side">
-                <div className="color-grid">
-                  <div className="black" />
-                  <div className="red1" />
-                  <div className="red2" />
-                  <div className="green" />
-                </div>
-                <div className="name-tag">
-                  <h1>
-                    <strong>{business.negnombre}</strong>
-                  </h1>
-                  <h3>{business.negdetalles}</h3>
+            <a href={url}>
+              <div className="businessCard">
+                <div className="back-side">
+                  <img className="businessImage" src={business.neglogo}/>
+                  <div className="name-tag">
+                    <h1>
+                      <strong>{business.negnombre}</strong>
+                    </h1>
+                    <h3>{business.negdetalles}</h3>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           )
         })}
       </div>

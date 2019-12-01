@@ -1,0 +1,47 @@
+.inputfile {
+  opacity: 0;
+	z-index: 1;
+  position: absolute;
+  width: 200px;
+}
+
+.inputfile + label {
+  text-align: center;
+  width: 200px;
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.inputfile + label {
+	cursor: pointer;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.uploadButton {
+  background-color: black;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-left: 10%;
+  cursor: pointer;
+}
+
+.uploadButton:hover {
+  color: yellow;
+}
+
+.box a {
+  padding-top: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}

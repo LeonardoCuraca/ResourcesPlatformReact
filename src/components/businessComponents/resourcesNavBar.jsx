@@ -5,7 +5,7 @@ const ResourcesNavBar = () => {
   return (
     <div className="main-sidebar">
       <div className="logo">
-        <a href="#"><img style={{width: '100%'}} src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/BUSINESS%20MANAGER.png?alt=media&token=e2e8f33a-29cf-46f6-80d2-bae47d4194b0" alt="" /></a>
+        <a href="/"><img style={{width: '100%'}} src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/BUSINESS%20MANAGER.png?alt=media&token=e2e8f33a-29cf-46f6-80d2-bae47d4194b0" alt="" /></a>
       </div>
       {/* sidebar menu*/}
       <div className="navbar_wrap">

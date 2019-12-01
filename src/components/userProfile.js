@@ -13,7 +13,6 @@ const UserProfile = () => {
       <UserNavBar/>
       <div className="rightpart">
         <UserCardView/>
-        <ImageUpload/>
         <UserSkills/>
         <EmployeeRequest/>
       </div>

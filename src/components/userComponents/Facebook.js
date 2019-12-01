@@ -53,6 +53,11 @@ export default class Facebook extends Component {
     let datos = {
       usuid: this.state.userID,
       usunombre: this.state.name,
+      usuapellido: "",
+      usugenero: "",
+      usudetalle: "",
+      usudireccion: "",
+      usucelular: "",
       usuemail: this.state.email,
       usufoto: this.state.picture,
     }

@@ -7,15 +7,7 @@
   background-size: cover;
   height: 100vh;
   width: 110%;
-  z-index: 1;
-  animation: popup 0.3s;
-}
-
-@keyframes popup {
-  from {
-    width: 0;
-    height: 0;
-  }
+  z-index: 3;
 }
 
 .box {
@@ -167,4 +159,9 @@
 
 .radio input[type="radio"]:checked ~ span:after {
 	transform: translate(-50%, -50%) scale(1);
+}
+
+.NewBusinessFormButton {
+  background-color: black;
+  padding: 8px;
 }

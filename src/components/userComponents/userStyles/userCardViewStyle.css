@@ -2,6 +2,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.profileBack {
+  background: rgb(24, 27, 39);;
+}
+
+.profileContainer {
+  background: #fff;
+  border-radius: 0 80px;
+  padding-bottom: 8px;
+}
+
 .fb-image-lg {
     z-index: 0;
     width: 100%;
@@ -24,6 +34,17 @@ body {
   font-weight: 700;
 }
 
+.fb-profile-text p {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
 .profileContainer {
   margin-top: -19px;
+}
+
+.profileEditButton {
+  position: absolute;
+  float: right;
+  background-color: #000;
 }

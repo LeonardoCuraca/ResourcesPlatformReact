@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {storage} from '../../firebase';
 
-import './userStyles/loginStyle.css';
-import './userStyles/ImageUploadStyle.css'
+import './businessStyles/NewBusinessFormStyle.css';
+import './businessStyles/BusinessImageUploadStyle.css'
 
-class ImageUpload extends Component {
+class BusinessImageUpload extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       image: null,
-      userData: [],
+      businessData: [],
       uploaded: false,
     }
     this.handleChange = this.handleChange.bind(this);
@@ -48,20 +48,22 @@ class ImageUpload extends Component {
   }
 
   saveImageOnDataBase(url) {
-    var id = JSON.parse(localStorage.getItem("userInfo")).userID;
-    axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/').then(res => {
+    console.log(url);
+    var id = this.props.id;
+    axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/').then(res => {
       let datos = {
-        usunombre: res.data.usunombre,
-        usuapellido: res.data.usuapellido,
-        usuemail: res.data.usuemail,
-        usugenero: res.data.usugenero,
-        usudetalle: res.data.usudetalle,
-        usudireccion: res.data.usudireccion,
-        usufoto: url,
-        usucelular: res.data.usucelular,
+        negnombre: res.data.negnombre,
+        negdetalles: res.data.negdetalles,
+        negdireccion: res.data.negdireccion,
+        negemail: res.data.negemail,
+        negcodpostal: res.data.negcodpostal,
+        negpassword: res.data.password,
+        negcelular: res.data.negcelular,
+        neglogo: url,
+        negestado: res.data.negestado,
       }
-      console.log(datos.usufoto);
-      axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/', datos);
+      console.log(datos.neglogo);
+      axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/' , datos);
       this.setState({
         uploaded: true,
       });
@@ -75,11 +77,11 @@ class ImageUpload extends Component {
       <div className="back">
         <div className="box">
           {this.state.uploaded ?
-            <h2>Perfil Actualizado</h2>
+            <h2>Imagen Actualizada</h2>
             : null
           }
           {!this.state.uploaded ?
-            <h2>Actualizar Foto de Perfil</h2>
+            <h2>Actualizar Imagen del Negocio</h2>
             : null
           }
           <input type="file" name="file" id="file" className="inputfile" onChange={this.handleChange} />
@@ -89,14 +91,7 @@ class ImageUpload extends Component {
             : null
           }
           <br/>
-          {this.state.uploaded ?
-            <a href="/userProfile">close me</a>
-            : null
-          }
-          {!this.state.uploaded ?
-            <a onClick={this.props.closeImageUploader}>close me</a>
-            : null
-          }
+          <a onClick={this.props.closeBusinessImageUploader}>close me</a>
         </div>
       </div>
     )
@@ -104,4 +99,4 @@ class ImageUpload extends Component {
 
 }
 
-export default ImageUpload;
+export default BusinessImageUpload;

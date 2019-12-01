@@ -13,7 +13,7 @@ export default class UserCardView extends Component {
         <div className="leftpart">
           <div className="leftpart_inner">
             <div className="logo_wrap">
-              <a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/BUSINESS%20MANAGER.png?alt=media&token=e2e8f33a-29cf-46f6-80d2-bae47d4194b0" alt="" /></a>
+              <a href="/"><img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/BUSINESS%20MANAGER.png?alt=media&token=e2e8f33a-29cf-46f6-80d2-bae47d4194b0" alt="" /></a>
             </div>
             <div className="menu_list_wrap">
               <ul className="anchor_nav">
@@ -22,7 +22,7 @@ export default class UserCardView extends Component {
                 <li><a href="#Empleos">Mis Empleos</a></li>
                 <li><a href="/lookForJobs">Buscar Empleo</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="/"><button onClick={() => this.cerrarSesion()}>Cerrar Sesión</button></a></li>
+                <li><a href="/" onClick={() => this.cerrarSesion()}>Cerrar Sesión</a></li>
               </ul>
             </div>
           </div>
