@@ -18,7 +18,8 @@ import Dashboard from "./components/dashboard";
 import MainPage from "./components/MainPage";
 import OtherBusiness from "./components/OtherBusiness";
 import LoginForm from "./components/userComponents/LoginForm";
-import BusinessProfile from "./components/businessComponents/BusinessProfile";
+import BusinessProfilePage from "./components/BusinessProfilePage";
+import BusinessProfileOwn from "./components/BusinessProfileOwn";
 
 class App extends Component {
 
@@ -29,10 +30,11 @@ class App extends Component {
         <Route path="/login" component={LoginForm} />
         <Route path="/qrCode" component={QRCode} />
         <Route path="/userProfile" component={UserProfile} />
-        <Route path="/lookForJobs" component={OtherBusiness} />
+        <Route exact="" path="/availableBusiness" component={OtherBusiness} />
+        <Route path="/availableBusiness/:businessId" component={BusinessProfilePage} />
         <Route exact="" path="/myBusiness" component={MyBusiness} />
-        <Route path="/myBusiness/:businessId" component={BusinessProfile} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route exact="" path="/myBusiness/:businessId" component={BusinessProfileOwn} />
+        <Route path="/myBusiness/:businessId/dashboard/" component={Dashboard} />
       </Router>
     );
   }

@@ -12,7 +12,7 @@ class BusinessImageUpload extends Component {
     this.state = {
       image: null,
       businessData: [],
-      uploaded: false,
+      uploaded: "not uploaded",
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
@@ -26,6 +26,9 @@ class BusinessImageUpload extends Component {
   }
 
   handleUpload = () => {
+    this.setState({
+      uploaded: "uploading",
+    });
     const image = this.state.image;
     if (image == null) {
       console.log("no image");
@@ -63,9 +66,11 @@ class BusinessImageUpload extends Component {
         negestado: res.data.negestado,
       }
       console.log(datos.neglogo);
-      axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/' , datos);
-      this.setState({
-        uploaded: true,
+      axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/' , datos).then(res => {
+        this.setState({
+          uploaded: "uploaded",
+        })
+        window.location.reload()
       });
     });
   }
@@ -76,11 +81,15 @@ class BusinessImageUpload extends Component {
     return (
       <div className="back">
         <div className="box">
-          {this.state.uploaded ?
+          {this.state.uploaded == "uploaded" ?
             <h2>Imagen Actualizada</h2>
             : null
           }
-          {!this.state.uploaded ?
+          {this.state.uploaded == "uploading" ?
+            <h2>Actualizando...</h2>
+            : null
+          }
+          {this.state.uploaded == "not uploaded" ?
             <h2>Actualizar Imagen del Negocio</h2>
             : null
           }

@@ -38,7 +38,7 @@ export default class AvailableBusinessCardView extends Component {
       <div className="businessContainer">
         {this.state.business.map(business => {
           if (business.negusuario != JSON.parse(localStorage.getItem("userInfo")).userID) {
-            var url = "/myBusiness/" + business.negid;
+            var url = "/availableBusiness/" + business.negid;
             return(
               <a href={url}>
                 <div className="businessCard">

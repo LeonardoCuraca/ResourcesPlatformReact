@@ -19,9 +19,7 @@ export default class UserCardView extends Component {
               <ul className="anchor_nav">
                 <li><a href="/userProfile">Perfil</a></li>
                 <li><a href="/myBusiness">Mis Negocios</a></li>
-                <li><a href="#Empleos">Mis Empleos</a></li>
-                <li><a href="/lookForJobs">Buscar Empleo</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a href="/availableBusiness">Buscar Empleo</a></li>
                 <li><a href="/" onClick={() => this.cerrarSesion()}>Cerrar Sesión</a></li>
               </ul>
             </div>

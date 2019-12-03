@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './css/pagesStyle/userProfileStyle.css';
 
 import NavBar from "./businessComponents/resourcesNavBar";
@@ -8,18 +8,19 @@ import SplineChart from "./chartComponents/SplineChart";
 
 import EmployeesListView from "./businessComponents/EmployeesListView";
 
-const UserProfile = () => {
-  return (
-    <div>
-      <NavBar/>
-      <div className="rightpart">
-        <EmployeesListView/>
-        <AreaChart/>
-        <PieChart/>
-        <SplineChart/>
+export default class UserProfile extends Component {
+  render() {
+    return (
+      <div>
+        <NavBar/>
+        <div className="rightpart">
+          <EmployeesListView
+            businessId = {this.props.match.params.businessId}/>
+          <AreaChart/>
+          <PieChart/>
+          <SplineChart/>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
-
-export default UserProfile;

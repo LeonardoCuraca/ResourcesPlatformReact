@@ -64,7 +64,7 @@ export default class NewBusinessForm extends Component {
 
   handleSubmit(event) {
     axios.post('https://businessmanagerwebservice.herokuapp.com/api/negocio/', this.state).then(res => {
-      console.log(res);
+      window.location.reload();
     })
   }
 
@@ -73,34 +73,31 @@ export default class NewBusinessForm extends Component {
       <div className="back">
         <div className="box">
           <h2>Agregar nuevo negocio</h2>
-          <form onSubmit={this.handleSubmit} autoComplete="off">
-            <div className="inputBox">
-              <input type="text" value={this.state.negnombre} onChange={this.changeName} />
-              <label>Nombre del Negocio</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.negdetalles} onChange={this.changeDescription} />
-              <label>Descripción del Negocio</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.negdireccion} onChange={this.changeAddress} />
-              <label>Dirección</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.negemail} onChange={this.changeEmail} />
-              <label>Correo Electrónico del Negocio</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.negcelular} onChange={this.changePhone} />
-              <label>Teléfono</label>
-            </div>
-            <div className="inputBox">
-              <input type="password"  value={this.state.negpassword} onChange={this.changePassword} />
-              <label>Contraseña del Negocio</label>
-            </div>
-            <input type="submit" defaultValue="Registrarse" />
-            <input type="reset" defaultValue="Limpiar" />
-          </form>
+          <div className="inputBox">
+            <input type="text" value={this.state.negnombre} onChange={this.changeName} />
+            <label>Nombre del Negocio</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.negdetalles} onChange={this.changeDescription} />
+            <label>Descripción del Negocio</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.negdireccion} onChange={this.changeAddress} />
+            <label>Dirección</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.negemail} onChange={this.changeEmail} />
+            <label>Correo Electrónico del Negocio</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.negcelular} onChange={this.changePhone} />
+            <label>Teléfono</label>
+          </div>
+          <div className="inputBox">
+            <input type="password"  value={this.state.negpassword} onChange={this.changePassword} />
+            <label>Contraseña del Negocio</label>
+          </div>
+          <button className="addButton" onClick={this.handleSubmit}>Añadir</button><br/>
           <button onClick={this.props.closeNewBusinessForm}>Cerrar</button>
         </div>
       </div>

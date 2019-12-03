@@ -23,8 +23,7 @@ export default class BusinessProfile extends Component {
   }
 
   componentWillMount(){
-    console.log(this.props.match.params.businessId);
-    var id = this.props.match.params.businessId;
+    var id = this.props.businessId;
     axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/').then(res => {
       console.log(res.data);
       this.setState({
@@ -51,6 +50,7 @@ export default class BusinessProfile extends Component {
   }
 
   render() {
+    var url = "/myBusiness/" + this.state.business.negid + "/dashboard/";
     if (this.state.isdeleted) {
       return <Redirect to={{pathname: '/myBusiness'}} />
     }
@@ -84,7 +84,7 @@ export default class BusinessProfile extends Component {
               <p className="pt-10 pb-10 text-white">
                 Correo Electrónico: {this.state.business.negemail}
               </p>
-              <a href="/dashboard" className="primary-btn text-uppercase">Dashboard</a>
+              <a href={url} className="primary-btn text-uppercase">Dashboard</a>
               <button onClick={this.deleteBusiness} className="primary-btn text-uppercase">Eliminar Negocio</button>
             </div>
           </div>

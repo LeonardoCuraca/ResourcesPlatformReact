@@ -1,0 +1,12 @@
+.table-header {
+  display: flex;
+}
+
+.table-header button {
+  color: #000;
+  margin-left: 50%;
+  font-family: sans-serif;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid black;
+}

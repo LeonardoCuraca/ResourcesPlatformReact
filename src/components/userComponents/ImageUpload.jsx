@@ -12,7 +12,7 @@ class ImageUpload extends Component {
     this.state = {
       image: null,
       userData: [],
-      uploaded: false,
+      uploaded: "not uploaded",
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
@@ -26,6 +26,9 @@ class ImageUpload extends Component {
   }
 
   handleUpload = () => {
+    this.setState({
+      uploaded: "uploading",
+    });
     const image = this.state.image;
     if (image == null) {
       console.log("no image");
@@ -61,9 +64,11 @@ class ImageUpload extends Component {
         usucelular: res.data.usucelular,
       }
       console.log(datos.usufoto);
-      axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/', datos);
-      this.setState({
-        uploaded: true,
+      axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/', datos).then(res => {
+        this.setState({
+          uploaded: "uploaded",
+        })
+        window.location.reload()
       });
     });
   }
@@ -74,27 +79,27 @@ class ImageUpload extends Component {
     return (
       <div className="back">
         <div className="box">
-          {this.state.uploaded ?
-            <h2>Perfil Actualizado</h2>
-            : null
-          }
-          {!this.state.uploaded ?
-            <h2>Actualizar Foto de Perfil</h2>
-            : null
-          }
+        {this.state.uploaded == "uploaded" ?
+          <h2>Perfil Actualizado</h2>
+          : null
+        }
+        {this.state.uploaded == "uploading" ?
+          <h2>Actualizando...</h2>
+          : null
+        }
+        {this.state.uploaded == "not uploaded" ?
+          <h2>Actualizar Foto de Perfil</h2>
+          : null
+        }
           <input type="file" name="file" id="file" className="inputfile" onChange={this.handleChange} />
-          <label><i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choose a file</label>
+          <label><i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Elija una Imagen</label>
           {this.state.image ?
-            <label className="uploadButton" onClick={this.handleUpload}>Upload</label>
+            <label className="uploadButton" onClick={this.handleUpload}>Subir</label>
             : null
           }
           <br/>
-          {this.state.uploaded ?
-            <a href="/userProfile">close me</a>
-            : null
-          }
-          {!this.state.uploaded ?
-            <a onClick={this.props.closeImageUploader}>close me</a>
+          {this.state.uploaded == "not uploaded" ?
+            <a onClick={this.props.closeImageUploader}>Cerrar</a>
             : null
           }
         </div>

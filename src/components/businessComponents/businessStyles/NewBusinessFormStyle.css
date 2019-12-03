@@ -83,7 +83,7 @@
   font-size: 12px;
 }
 
-.box input[type="submit"] {
+.box .addButton {
   background: Transparent;
   border: none;
   outline: none;
