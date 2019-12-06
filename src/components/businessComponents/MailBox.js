@@ -12,26 +12,25 @@ export default class MailBox extends Component {
 
   componentWillMount(){
     var id = this.props.businessId;
+    console.log(this.props.businessId);
     axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/').then(res => {
       console.log(res.data);
       this.setState({
-        products: res.data.solicitud,
+        requests: res.data.solicitud,
       });
     });
   }
 
-  toggleProductForm() {
-    this.setState({
-         showProductForm: !this.state.showProductForm
+  confirmRequest(solidusu, solid) {
+    axios.post('https://businessmanagerwebservice.herokuapp.com/api/empleados/', datos).then(res => {
+      this.deleteRequest(solid);
     });
   }
 
-  confirmRequest(solidusu) {
-
-  }
-
   deleteRequest(solid) {
-    
+    axios.delete('https://businessmanagerwebservice.herokuapp.com/api/empleados/' + solid + '/').then(res => {
+      window.location.reload();
+    });
   }
 
   render() {
@@ -66,7 +65,7 @@ export default class MailBox extends Component {
                   <td>{request.soliemail}</td>
                   <td>{request.solicelular}</td>
                   <th>{request.solimensaje}</th>
-                  <th><button onClick={this.confirmRequest(request.soliusu)}>Agregar</button></th>
+                  <th><button onClick={this.confirmRequest(request.soliusu, request.solid)}>Agregar</button></th>
                   <th><button onClick={this.deleteRequest(request.solid)}>Agregar</button></th>
                 </tr>
               )
