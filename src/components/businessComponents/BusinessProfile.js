@@ -64,7 +64,7 @@ export default class BusinessProfile extends Component {
           />
           : null
         }
-        <button className="BusinessImageUpdateButton" onClick={this.toggleBusinessImageUploader.bind(this)}><i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"/></button>
+        <button className="BusinessImageUpdateButton" onClick={this.toggleBusinessImageUploader.bind(this)}><i className="far fa-image" aria-hidden="true"/></button>
         <div className="overlay overlay-bg" />
         <div className="container">
           <div className="row fullscreen d-flex align-items-center justify-content-between" style={{height: '693px'}}>

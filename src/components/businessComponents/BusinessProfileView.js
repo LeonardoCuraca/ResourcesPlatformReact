@@ -58,7 +58,8 @@ export default class BusinessProfileView extends Component {
             </div>
           </div>
         </section>
-        <EmployeeRequest/>
+        <EmployeeRequest
+          businessId = {this.props.businessId}/>
       </div>
     );
   }

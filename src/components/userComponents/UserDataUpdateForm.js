@@ -77,6 +77,7 @@ export default class UserDataUpdateForm extends Component {
     var id = JSON.parse(localStorage.getItem("userInfo")).userID;
     axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/', this.state).then(res => {
       console.log(res);
+      window.location.reload();
     })
   }
 
@@ -85,42 +86,39 @@ export default class UserDataUpdateForm extends Component {
       <div className="back">
         <div className="box">
           <h2>Actualizar Información</h2>
-          <form onSubmit={this.handleSubmit} autoComplete="off">
-            <div className="inputBox">
-              <input type="text" value={this.state.usunombre} onChange={this.changeName} />
-              <label>Nombres</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.usuapellido} onChange={this.changeLastName} />
-              <label>Apellidos</label>
-            </div>
-            <div className="radio-group">
-              <label className="radio">
-                <input type="radio" defaultValue="Masculino" />
-                Hombre
-                <span />
-              </label>
-              <label className="radio">
-                <input type="radio" defaultValue="Femenino" />
-                Mujer
-                <span />
-              </label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.usudetalle} onChange={this.changeDescription} />
-              <label>Descripción</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.usudireccion} onChange={this.changeAddress} />
-              <label>Dirección</label>
-            </div>
-            <div className="inputBox">
-              <input type="text" value={this.state.usucelular} onChange={this.changePhone} />
-              <label>Celular</label>
-            </div>
-            <input type="submit" defaultValue="Registrarse" />
-            <input type="reset" defaultValue="Limpiar" />
-          </form>
+          <div className="inputBox">
+            <input type="text" value={this.state.usunombre} onChange={this.changeName} />
+            <label>Nombres</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.usuapellido} onChange={this.changeLastName} />
+            <label>Apellidos</label>
+          </div>
+          <div className="radio-group">
+            <label className="radio">
+              <input type="radio" defaultValue="Masculino" />
+              Hombre
+              <span />
+            </label>
+            <label className="radio">
+              <input type="radio" defaultValue="Femenino" />
+              Mujer
+              <span />
+            </label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.usudetalle} onChange={this.changeDescription} />
+            <label>Descripción</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.usudireccion} onChange={this.changeAddress} />
+            <label>Dirección</label>
+          </div>
+          <div className="inputBox">
+            <input type="text" value={this.state.usucelular} onChange={this.changePhone} />
+            <label>Celular</label>
+          </div>
+          <button className="addButton" onClick={this.handleSubmit}>Añadir</button><br/>
           <button onClick={this.props.closePopup}>close me</button>
         </div>
       </div>

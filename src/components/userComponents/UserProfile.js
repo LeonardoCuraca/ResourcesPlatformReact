@@ -4,31 +4,17 @@ import UserDataUpdateForm from './UserDataUpdateForm';
 import ImageUpload from './ImageUpload';
 import './userStyles/userCardViewStyle.css';
 
-export default class UserCardView extends Component {
+export default class UserProfile extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
         userData: [],
-        showPopup: false,
-        showImageUploader: false,
     }
   }
 
-  togglePopup() {
-    this.setState({
-         showPopup: !this.state.showPopup
-    });
-  }
-
-  toggleImageUploader() {
-    this.setState({
-         showImageUploader: !this.state.showImageUploader
-    });
-  }
-
   componentWillMount(){
-    var id = JSON.parse(localStorage.getItem("userInfo")).userID;
+    var id = this.props.userId;
     axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/').then(res => {
       console.log(res.data);
       this.setState({
@@ -40,24 +26,10 @@ export default class UserCardView extends Component {
   render() {
     return (
       <div className="profileContainer">
-        {this.state.showPopup ?
-          <UserDataUpdateForm
-                    closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
-        {this.state.showImageUploader ?
-          <ImageUpload
-                    closeImageUploader={this.toggleImageUploader.bind(this)}
-          />
-          : null
-        }
-        {/* banner */}
         <div className="fb-profile">
-          <button className="profileEditButton" onClick={this.togglePopup.bind(this)}><i className="fas fa-user-edit" aria-hidden="true"/></button>
           <img align="left" className="fb-image-lg" src="http://www.fbcovers.alegriphotos.com/covers/Metal-blur1781.jpg" alt="Profile image example"/>
           <div className="imageContainer">
-            <img title="Actualizar Foto de Perfil" onClick={this.toggleImageUploader.bind(this)} align="left" className="fb-image-profile thumbnail" src={this.state.userData.usufoto} alt="Profile image example" />
+            <img align="left" className="fb-image-profile-view thumbnail" src={this.state.userData.usufoto} alt="Profile image example" />
           </div>
           <div className="fb-profile-text">
             <h1>{this.state.userData.usunombre} {this.state.userData.usuapellido}</h1>

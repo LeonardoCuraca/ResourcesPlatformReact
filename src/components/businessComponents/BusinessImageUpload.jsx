@@ -93,7 +93,7 @@ class BusinessImageUpload extends Component {
             <h2>Actualizar Imagen del Negocio</h2>
             : null
           }
-          <input type="file" name="file" id="file" className="inputfile" onChange={this.handleChange} />
+          <input type="file" name="file" id="file" accept="image/x-png,image/gif,image/jpeg" className="inputfile" onChange={this.handleChange} />
           <label><i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choose a file</label>
           {this.state.image ?
             <label className="uploadButton" onClick={this.handleUpload}>Upload</label>

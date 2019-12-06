@@ -39,10 +39,6 @@ export default class Facebook extends Component {
         picture: response.picture.data.url,
       });
       this.registerUser();
-      localStorage.setItem("userInfo", JSON.stringify(this.state));
-      this.setState({
-        isLoggedIn: true,
-      });
   }
 
   registerUser() {
@@ -64,8 +60,18 @@ export default class Facebook extends Component {
     console.log(datos);
     axios.post('https://businessmanagerwebservice.herokuapp.com/api/usuarios/', datos).then(res => {
       console.log(res);
+      console.log("new user");
+      localStorage.setItem("userInfo", JSON.stringify(this.state));
+      this.setState({
+        isLoggedIn: true,
+      });
     }).catch((error) => {
+      console.log("old user");
+      localStorage.setItem("userInfo", JSON.stringify(this.state));
       console.log(error);
+      this.setState({
+        isLoggedIn: true,
+      });
     });
   }
 

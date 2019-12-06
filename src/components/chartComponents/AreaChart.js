@@ -6,17 +6,47 @@ var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class AreaChart extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        ventas: [],
+    }
+  }
+
+  componentWillMount() {
+    axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/'+ this.props.businessId +'/').then(res => {
+      console.log(res.data);
+      this.setState({
+        ventas: res.data.venta,
+      },
+    function() {
+      console.log(this.state.ventas);
+    });
+    });
+  }
+
   render() {
+    var dps = []
+    var list = this.state.ventas;
+    console.log(list.length);
+
+    for (var i = 0; i < list.length; i++) {
+      console.log(list[i]);
+      dps.push({x: new Date(list[i].venfecha), y: list[i].ventotal});
+    }
+
+    console.log(dps);
 
     const options = {
 			theme: "light2",
 			animationEnabled: true,
 			exportEnabled: true,
 			title: {
-				text: "Number of iPhones Sold"
+				text: "Total de Ventas"
 			},
 			axisY: {
-				title: "Number of iPhones ( in Million )",
+				title: "Ingresos Totales (En Soles)",
 				includeZero: false,
 			},
 			data: [
@@ -24,15 +54,7 @@ export default class AreaChart extends Component {
 				type: "area",
 				xValueFormatString: "YYYY",
 				yValueFormatString: "#,##0.## Million",
-				dataPoints: [
-					{ x: new Date(2017, 0), y: 7.6},
-					{ x: new Date(2016, 0), y: 7.3},
-					{ x: new Date(2015, 0), y: 6.4},
-					{ x: new Date(2014, 0), y: 5.3},
-					{ x: new Date(2013, 0), y: 4.5},
-					{ x: new Date(2012, 0), y: 3.8},
-					{ x: new Date(2011, 0), y: 3.2}
-				]
+				dataPoints: dps
 			}
 			]
 		}

@@ -7,6 +7,7 @@ import PieChart from "./chartComponents/PieChart";
 import SplineChart from "./chartComponents/SplineChart";
 
 import EmployeesListView from "./businessComponents/EmployeesListView";
+import ProductsListView from "./businessComponents/ProductsListView";
 
 export default class UserProfile extends Component {
   render() {
@@ -14,9 +15,12 @@ export default class UserProfile extends Component {
       <div>
         <NavBar/>
         <div className="rightpart">
+          <ProductsListView
+            businessId = {this.props.match.params.businessId}/>
           <EmployeesListView
             businessId = {this.props.match.params.businessId}/>
-          <AreaChart/>
+          <AreaChart
+            businessId = {this.props.match.params.businessId}/>
           <PieChart/>
           <SplineChart/>
         </div>

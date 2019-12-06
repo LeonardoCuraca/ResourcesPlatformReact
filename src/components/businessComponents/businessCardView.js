@@ -37,6 +37,7 @@ export default class UserCardView extends Component {
       this.setState({
         business: res.data.negocio,
       });
+      console.log(this.state.business);
     });
   }
 

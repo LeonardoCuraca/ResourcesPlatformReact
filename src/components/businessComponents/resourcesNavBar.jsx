@@ -29,7 +29,7 @@ const ResourcesNavBar = () => {
             </a>
           </li>
           <li>
-            <a href="pages/mailbox/mailbox.html">
+            <a href="MailBox">
               <i className="mdi mdi-email-variant" />
               <span>Mailbox</span>
               <span className="pull-right-container">

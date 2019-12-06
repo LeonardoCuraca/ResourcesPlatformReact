@@ -44,18 +44,17 @@
   text-align: center;
 }
 
-.menu_list_wrap ul li a, button {
+.menu_list_wrap ul li a {
   text-decoration: none;
   color: #fff;
-  font-family: "Montserrat";
+  font-family: sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 525;
   text-transform: uppercase;
   display: inline-block;
   padding-bottom: 85px;
 }
 
-.menu_list_wrap ul li button {
-  background: none;
-  border: none;
+.menu_list_wrap ul li a:hover {
+  font-size: 18px;
 }
