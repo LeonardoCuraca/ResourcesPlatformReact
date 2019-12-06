@@ -21,7 +21,11 @@ export default class MailBox extends Component {
     });
   }
 
-  confirmRequest(solidusu, solid) {
+  confirmRequest(soliusu, solid) {
+    var datos = {
+      empneg: this.props.businessId,
+      empusu: soliusu,
+    }
     axios.post('https://businessmanagerwebservice.herokuapp.com/api/empleados/', datos).then(res => {
       this.deleteRequest(solid);
     });
