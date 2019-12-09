@@ -94,13 +94,13 @@ class BusinessImageUpload extends Component {
             : null
           }
           <input type="file" name="file" id="file" accept="image/x-png,image/gif,image/jpeg" className="inputfile" onChange={this.handleChange} />
-          <label><i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choose a file</label>
+          <label className="inputImage"><i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choose a file</label>
           {this.state.image ?
             <label className="uploadButton" onClick={this.handleUpload}>Upload</label>
             : null
           }
           <br/>
-          <a onClick={this.props.closeBusinessImageUploader}>close me</a>
+          <button className="closeButton" onClick={this.props.closeBusinessImageUploader}>X</button>
         </div>
       </div>
     )

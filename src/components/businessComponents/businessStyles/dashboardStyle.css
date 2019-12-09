@@ -10,3 +10,53 @@
   border-radius: 8px;
   border: 1px solid black;
 }
+
+.requestContainer {
+  width: 100%;
+  margin: 16px;
+}
+
+.card {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.288);
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.confirmButton {
+  background: #41b341;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.288);
+  margin-left: 8px;
+}
+
+.deleteButton {
+  background: #b34141;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.288);
+  margin-left: 8px;
+}
+
+.requestName {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.card-img {
+  margin-left: 8px;
+  margin-top: 25%;
+}
+
+.requestInfo {
+  margin-top: 8px;
+  font-size: 18px;
+}

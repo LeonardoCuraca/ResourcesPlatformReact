@@ -14,7 +14,6 @@ import Facebook from "./components/userComponents/Facebook";
 import UserProfile from "./components/userProfile";
 import UserProfileView from "./components/UserProfileView";
 import MyBusiness from "./components/myBusiness";
-import QRCode from "./components/qrCodeGenerator";
 import Dashboard from "./components/dashboard";
 import DashboardMailBox from "./components/dashboardMailBox";
 import MainPage from "./components/MainPage";
@@ -30,7 +29,6 @@ class App extends Component {
       <Router>
         <Route exact="" path="/" component={MainPage} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/qrCode" component={QRCode} />
         <Route exact="" path="/userProfile" component={UserProfile} />
         <Route exact="" path="/userProfile/:userId" component={UserProfileView} />
         <Route exact="" path="/availableBusiness" component={OtherBusiness} />

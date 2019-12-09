@@ -98,7 +98,7 @@ export default class NewBusinessForm extends Component {
             <label>Contraseña del Negocio</label>
           </div>
           <button className="addButton" onClick={this.handleSubmit}>Añadir</button><br/>
-          <button onClick={this.props.closeNewBusinessForm}>Cerrar</button>
+          <button className="closeButton" onClick={this.props.closeNewBusinessForm}>X</button>
         </div>
       </div>
     );

@@ -12,7 +12,7 @@ export default class LoginForm extends Component {
           <div className="facebookButton">
             <Facebook/>
           </div>
-          <button onClick={this.props.closePopup}>close me</button>
+          <button className="closeButton" onClick={this.props.closePopup}>X</button>
         </div>
       </div>
     );

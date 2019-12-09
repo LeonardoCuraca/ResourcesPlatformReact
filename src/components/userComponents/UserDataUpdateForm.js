@@ -119,7 +119,7 @@ export default class UserDataUpdateForm extends Component {
             <label>Celular</label>
           </div>
           <button className="addButton" onClick={this.handleSubmit}>Añadir</button><br/>
-          <button onClick={this.props.closePopup}>close me</button>
+          <button className="closeButton" onClick={this.props.closePopup}>X</button>
         </div>
       </div>
     );

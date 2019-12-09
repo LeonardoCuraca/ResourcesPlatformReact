@@ -8,6 +8,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import EmployeeRequest from './EmployeeRequest';
+import BusinessMap from './BusinessMap';
 import './businessStyles/BusinessProfileStyle.css';
 
 export default class BusinessProfileView extends Component {
@@ -31,6 +32,10 @@ export default class BusinessProfileView extends Component {
   }
 
   render() {
+    var center = {
+      lat: this.state.business.negLati,
+      lng: this.state.business.negLong
+    };
     return (
       <div>
         <section className="banner-area" id="home">
@@ -58,6 +63,9 @@ export default class BusinessProfileView extends Component {
             </div>
           </div>
         </section>
+        <BusinessMap
+          center = {center}
+        />
         <EmployeeRequest
           businessId = {this.props.businessId}/>
       </div>

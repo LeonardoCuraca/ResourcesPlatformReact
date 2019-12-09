@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/pagesStyle/userProfileStyle.css';
 
-import NavBar from "./businessComponents/resourcesNavBar";
+import ResourcesNavBar from "./businessComponents/resourcesNavBar";
 import AreaChart from "./chartComponents/AreaChart";
 import PieChart from "./chartComponents/PieChart";
 import SplineChart from "./chartComponents/SplineChart";
@@ -13,12 +13,17 @@ export default class UserProfile extends Component {
   render() {
     return (
       <div>
-        <NavBar/>
+        <ResourcesNavBar
+          bid = {this.props.match.params.businessId}/>
         <div className="rightpart">
-          <ProductsListView
-            businessId = {this.props.match.params.businessId}/>
-          <EmployeesListView
-            businessId = {this.props.match.params.businessId}/>
+          <section id="products">
+            <ProductsListView
+              businessId = {this.props.match.params.businessId}/>
+          </section>
+          <section id="employees">
+            <EmployeesListView
+              businessId = {this.props.match.params.businessId}/>
+          </section>
           <AreaChart
             businessId = {this.props.match.params.businessId}/>
           <PieChart/>

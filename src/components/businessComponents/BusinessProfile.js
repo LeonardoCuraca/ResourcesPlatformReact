@@ -8,6 +8,10 @@ import {
   Redirect
 } from 'react-router-dom';
 import BusinessImageUpload from './BusinessImageUpload';
+import BusinessLocationUpdateForm from './BusinessLocationUpdateForm';
+import BusinessMap from './BusinessMap';
+import QrCodeComponent from './qrCodeGenerator';
+
 import './businessStyles/BusinessProfileStyle.css';
 
 export default class BusinessProfile extends Component {
@@ -18,6 +22,7 @@ export default class BusinessProfile extends Component {
         business: [],
         isdeleted: false,
         showBusinessImageUploader: false,
+        showLocationForm: false,
     }
     this.deleteBusiness = this.deleteBusiness.bind(this);
   }
@@ -25,7 +30,7 @@ export default class BusinessProfile extends Component {
   componentWillMount(){
     var id = this.props.businessId;
     axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/').then(res => {
-      console.log(res.data);
+      console.log(res.data.negid);
       this.setState({
         business: res.data,
       });
@@ -39,8 +44,11 @@ export default class BusinessProfile extends Component {
       console.log(res);
       this.setState({
         isdeleted: true,
-      });
-    })
+      },
+    function() {
+      console.log(this.state.business);
+    });
+    });
   }
 
   toggleBusinessImageUploader() {
@@ -49,47 +57,73 @@ export default class BusinessProfile extends Component {
     });
   }
 
+  toggleLocationForm() {
+    this.setState({
+         showLocationForm: !this.state.showLocationForm
+    });
+  }
+
   render() {
+    var center = {
+      lat: this.state.business.negLati,
+      lng: this.state.business.negLong
+    };
+    var qrtext = String(this.state.business.negid);
     var url = "/myBusiness/" + this.state.business.negid + "/dashboard/";
     if (this.state.isdeleted) {
       return <Redirect to={{pathname: '/myBusiness'}} />
     }
     return (
-      <section className="banner-area" id="home">
-        <img className="businessImage" src={this.state.business.neglogo}/>
-        {this.state.showBusinessImageUploader ?
-          <BusinessImageUpload
-                    closeBusinessImageUploader={this.toggleBusinessImageUploader.bind(this)}
-                    id = {this.state.business.negid}
-          />
-          : null
-        }
-        <button className="BusinessImageUpdateButton" onClick={this.toggleBusinessImageUploader.bind(this)}><i className="far fa-image" aria-hidden="true"/></button>
-        <div className="overlay overlay-bg" />
-        <div className="container">
-          <div className="row fullscreen d-flex align-items-center justify-content-between" style={{height: '693px'}}>
-            <div className="banner-content col-lg-6 col-md-6 ">
-              <h1 className="businessName text-uppercase">
-                {this.state.business.negnombre}
-              </h1>
-              <h6 className="text-white ">{this.state.business.negdetalles}</h6>
-              <h1 className="text-uppercase">
-                {this.state.business.negcelular}
-              </h1>
-              <i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"/>
-              <p className="pt-10 pb-10 text-white">
-                Dirección: {this.state.business.negdireccion}
-              </p>
-              <i className="fas fa-cloud-upload-alt mr-2" aria-hidden="true"/>
-              <p className="pt-10 pb-10 text-white">
-                Correo Electrónico: {this.state.business.negemail}
-              </p>
-              <a href={url} className="primary-btn text-uppercase">Dashboard</a>
-              <button onClick={this.deleteBusiness} className="primary-btn text-uppercase">Eliminar Negocio</button>
+      <div className="BusinessProfile">
+        <section className="banner-area" id="home">
+          <img className="businessImage" src={this.state.business.neglogo}/>
+          {this.state.showBusinessImageUploader ?
+            <BusinessImageUpload
+                      closeBusinessImageUploader={this.toggleBusinessImageUploader.bind(this)}
+                      id = {this.state.business.negid}
+            />
+            : null
+          }
+          {this.state.showLocationForm ?
+            <BusinessLocationUpdateForm
+                      closeLocationForm={this.toggleLocationForm.bind(this)}
+                      businessId = {this.state.business.negid}
+            />
+            : null
+          }
+          <button className="BusinessImageUpdateButton" onClick={this.toggleBusinessImageUploader.bind(this)}><i className="far fa-image" aria-hidden="true"/></button>
+          <button className="BusinessLocationButton" onClick={this.toggleLocationForm.bind(this)}><i className="fas fa-map-marker-alt" aria-hidden="true"/></button>
+          <div className="overlay overlay-bg" />
+          <button onClick={this.deleteBusiness} className="deleteBusinessButton">Eliminar Negocio</button>
+          <div className="container">
+            <div className="row fullscreen d-flex align-items-center justify-content-between" style={{height: '693px'}}>
+              <div className="banner-content col-lg-6 col-md-6 ">
+                <h1 className="businessName text-uppercase">
+                  {this.state.business.negnombre}
+                </h1>
+                <h6 className="text-white ">{this.state.business.negdetalles}</h6>
+                <h1 className="text-uppercase">
+                  {this.state.business.negcelular}
+                </h1>
+                <i className="fas fa-map-marker-alt" aria-hidden="true"/>
+                <p className="pt-10 pb-10 text-white">
+                  Dirección: {this.state.business.negdireccion}
+                </p>
+                <i className="fas fa-envelope" aria-hidden="true"/>
+                <p className="pt-10 pb-10 text-white">
+                  Correo Electrónico: {this.state.business.negemail}
+                </p>
+                <a href={url} className="dashboardButton">Dashboard</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <BusinessMap
+          center = {center}
+        />
+        <QrCodeComponent
+          businessId = {qrtext}/>
+      </div>
     );
   }
 

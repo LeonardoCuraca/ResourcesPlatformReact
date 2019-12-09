@@ -8,25 +8,17 @@ export default class ProductForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      procodigo: "",
       pronombre: "",
       prostock: "",
       proprecio: "",
       prodetalles: "",
       proneg: this.props.id,
     }
-    this.changeCodigo = this.changeCodigo.bind(this);
     this.changeNombre = this.changeNombre.bind(this);
     this.changeStock = this.changeStock.bind(this);
     this.changePrecio = this.changePrecio.bind(this);
     this.changeDetalles = this.changeDetalles.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  changeCodigo(e) {
-    this.setState({
-      procodigo: e.target.value
-    });
   }
 
   changeNombre(e) {
@@ -66,10 +58,6 @@ export default class ProductForm extends Component {
         <div className="box">
           <h2>Agregar nuevo Producto</h2>
           <div className="inputBox">
-            <input type="text" value={this.state.procodigo} onChange={this.changeCodigo} />
-            <label>Código de Próducto</label>
-          </div>
-          <div className="inputBox">
             <input type="text" value={this.state.pronombre} onChange={this.changeNombre} />
             <label>Nombre</label>
           </div>
@@ -86,7 +74,7 @@ export default class ProductForm extends Component {
             <label>Detalles</label>
           </div>
           <button className="addButton" onClick={this.handleSubmit}>Añadir</button><br/>
-          <button onClick={this.props.closeProductForm}>Cerrar</button>
+          <button className="closeButton" onClick={this.props.closeProductForm}>X</button>
         </div>
       </div>
     );

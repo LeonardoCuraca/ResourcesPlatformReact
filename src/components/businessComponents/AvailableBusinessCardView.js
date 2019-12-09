@@ -37,7 +37,7 @@ export default class AvailableBusinessCardView extends Component {
     return (
       <div className="businessContainer">
         {this.state.business.map(business => {
-          if (business.negusuario != JSON.parse(localStorage.getItem("userInfo")).userID) {
+          if (business.negusuario != JSON.parse(localStorage.getItem("userInfo")).userID && business.negestado == "activo") {
             var url = "/availableBusiness/" + business.negid;
             return(
               <a href={url}>

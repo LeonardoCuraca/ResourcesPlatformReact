@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import EmployeeAddForm from './EmployeeAddForm';
 import './businessStyles/dashboardStyle.css';
 
 export default class MailBox extends Component {
@@ -7,7 +8,14 @@ export default class MailBox extends Component {
     super(props);
     this.state = {
         requests: [],
+        showEmployeeAddForm: false,
     }
+  }
+
+  toggleEmployeeAddForm() {
+    this.setState({
+         showEmployeeAddForm: !this.state.showEmployeeAddForm
+    });
   }
 
   componentWillMount(){
@@ -25,14 +33,18 @@ export default class MailBox extends Component {
     var datos = {
       empneg: this.props.businessId,
       empusu: soliusu,
+      empentrada: new Date(),
+      empsalida: new Date(),
     }
+    console.log(datos);
     axios.post('https://businessmanagerwebservice.herokuapp.com/api/empleados/', datos).then(res => {
+      console.log("added");
       this.deleteRequest(solid);
     });
   }
 
   deleteRequest(solid) {
-    axios.delete('https://businessmanagerwebservice.herokuapp.com/api/empleados/' + solid + '/').then(res => {
+    axios.delete('https://businessmanagerwebservice.herokuapp.com/api/solicitudes/' + solid + '/').then(res => {
       window.location.reload();
     });
   }
@@ -46,36 +58,40 @@ export default class MailBox extends Component {
             <h5 className="h3 mb-0">Solicitudes</h5>
           </div>
         </div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-              <th scope="col">Email</th>
-              <th scope="col">Celular</th>
-              <th scope="col">Mensaje</th>
-              <th scope="col">Agregar</th>
-              <th scope="col">Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.requests.map(request => {
-              return(
-                <tr>
-                  <th>{request.soliusu}</th>
-                  <th>{request.solinombre}</th>
-                  <td>{request.soliapellido}</td>
-                  <td>{request.soliemail}</td>
-                  <td>{request.solicelular}</td>
-                  <th>{request.solimensaje}</th>
-                  <th><button onClick={this.confirmRequest(request.soliusu, request.solid)}>Agregar</button></th>
-                  <th><button onClick={this.deleteRequest(request.solid)}>Agregar</button></th>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        <div className="requestContainer">
+          {this.state.requests.map(request => {
+            return(
+              <div className="card mb-3" style={{maxWidth: '540px'}}>
+                {this.state.showEmployeeAddForm ?
+                  <EmployeeAddForm
+                            closeEmployeeAddForm={this.toggleEmployeeAddForm.bind(this)}
+                            solid = {request.solid}
+                            businessId = {this.props.businessId}
+                            soliusu = {request.soliusu}
+                  />
+                  : null
+                }
+                <div className="row no-gutters">
+                  <div className="col-md-4">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/images%2Fmovil.png?alt=media&token=91cb33aa-eb81-4d87-9969-da3cbd8da912" className="card-img"/>
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h5 className="card-title"><a className="requestName" href={'/userProfile/' + request.soliusu}>{request.solinombre} {request.soliapellido}</a></h5>
+                      <p className="card-text">{request.solimensaje}</p>
+                      <p className="requestInfo"><small className="text-muted">Email: {request.soliemail}</small></p>
+                      <p className="requestInfo"><small className="text-muted">Celular: {request.solilcelular}</small></p>
+                    </div>
+                    <div className="card-body">
+                      <button className="confirmButton" onClick={this.toggleEmployeeAddForm.bind(this)}>Agregar</button>
+                      <button className="deleteButton" onClick={() => this.deleteRequest(request.solid)}>Descartar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
 		);
   }
