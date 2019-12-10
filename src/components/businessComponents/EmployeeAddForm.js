@@ -10,10 +10,12 @@ export default class EmployeeAddForm extends Component {
     this.state = {
       empneg: this.props.businessId,
       empusu: this.props.soliusu,
+      empestado: "inactivo",
       emparea: "",
       empsueldo: null,
       empentrada: new Date(),
       empsalida: new Date(),
+      empnombre: this.props.soliname + " " + this.props.soliapellido
     }
     this.changeArea = this.changeArea.bind(this);
     this.changeSueldo = this.changeSueldo.bind(this);

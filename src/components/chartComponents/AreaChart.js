@@ -52,8 +52,8 @@ export default class AreaChart extends Component {
 			data: [
 			{
 				type: "area",
-				xValueFormatString: "YYYY",
-				yValueFormatString: "#,##0.## Million",
+				xValueFormatString: "DDD",
+				yValueFormatString: "S/#,###",
 				dataPoints: dps
 			}
 			]

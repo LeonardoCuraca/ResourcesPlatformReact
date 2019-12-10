@@ -19,7 +19,9 @@ import DashboardMailBox from "./components/dashboardMailBox";
 import MainPage from "./components/MainPage";
 import OtherBusiness from "./components/OtherBusiness";
 import LoginForm from "./components/userComponents/LoginForm";
-import BusinessProfilePage from "./components/BusinessProfilePage";
+import BusinessProfilePage from "./components/BusinessProfilePage"
+import BusinessLoginForm from "./components/BusinessLoginForm";
+import UserSkillsForm from "./components/UserSkillsForm";
 import BusinessProfileOwn from "./components/BusinessProfileOwn";
 
 class App extends Component {
@@ -34,6 +36,8 @@ class App extends Component {
         <Route exact="" path="/availableBusiness" component={OtherBusiness} />
         <Route path="/availableBusiness/:businessId" component={BusinessProfilePage} />
         <Route exact="" path="/myBusiness" component={MyBusiness} />
+        <Route exact="" path="/myBusiness/login/:businessId" component={BusinessLoginForm} />
+        <Route exact="" path="/myBusiness/employee/skills/:userid" component={UserSkillsForm} />
         <Route exact="" path="/myBusiness/:businessId" component={BusinessProfileOwn} />
         <Route exact="" path="/myBusiness/:businessId/dashboard/" component={Dashboard} />
         <Route exact="" path="/myBusiness/:businessId/dashboard/mailBox" component={DashboardMailBox} />

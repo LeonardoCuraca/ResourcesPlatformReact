@@ -6,39 +6,56 @@ var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class SplineChart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        ventas: [],
+    }
+  }
+
+  componentWillMount() {
+    axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/'+ this.props.businessId +'/').then(res => {
+      console.log(res.data);
+      this.setState({
+        ventas: res.data.venta,
+      },
+    function() {
+      console.log(this.state.ventas);
+    });
+    });
+  }
+
   render() {
+
+    var dps = []
+    var list = this.state.ventas;
+    console.log(list.length);
+
+    for (var i = 0; i < list.length; i++) {
+      console.log(list[i]);
+      dps.push({x: new Date(list[i].venfecha), y: list[i].ventotal});
+    }
+
+    console.log(dps);
 
     const options = {
 			animationEnabled: true,
 			title:{
-				text: "Monthly Sales - 2017"
+				text: "Ventas Totales"
 			},
 			axisX: {
-				valueFormatString: "MMM"
+				valueFormatString: "DDD"
 			},
 			axisY: {
-				title: "Sales (in USD)",
-				prefix: "$",
+				title: "Ventas (en soles)",
+				prefix: "S/",
 				includeZero: false
 			},
 			data: [{
-				yValueFormatString: "$#,###",
-				xValueFormatString: "MMMM",
+				yValueFormatString: "S/#,###",
+				xValueFormatString: "DDD",
 				type: "spline",
-				dataPoints: [
-					{ x: new Date(2017, 0), y: 25060 },
-					{ x: new Date(2017, 1), y: 27980 },
-					{ x: new Date(2017, 2), y: 42800 },
-					{ x: new Date(2017, 3), y: 32400 },
-					{ x: new Date(2017, 4), y: 35260 },
-					{ x: new Date(2017, 5), y: 33900 },
-					{ x: new Date(2017, 6), y: 40000 },
-					{ x: new Date(2017, 7), y: 52500 },
-					{ x: new Date(2017, 8), y: 32300 },
-					{ x: new Date(2017, 9), y: 42000 },
-					{ x: new Date(2017, 10), y: 37160 },
-					{ x: new Date(2017, 11), y: 38400 }
-				]
+				dataPoints: dps
 			}]
 		}
 

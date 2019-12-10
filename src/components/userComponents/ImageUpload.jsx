@@ -11,7 +11,6 @@ class ImageUpload extends Component {
     super(props);
     this.state = {
       image: null,
-      userData: [],
       uploaded: "not uploaded",
     }
     this.handleChange = this.handleChange.bind(this);
@@ -52,24 +51,15 @@ class ImageUpload extends Component {
 
   saveImageOnDataBase(url) {
     var id = JSON.parse(localStorage.getItem("userInfo")).userID;
-    axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/').then(res => {
-      let datos = {
-        usunombre: res.data.usunombre,
-        usuapellido: res.data.usuapellido,
-        usuemail: res.data.usuemail,
-        usugenero: res.data.usugenero,
-        usudetalle: res.data.usudetalle,
-        usudireccion: res.data.usudireccion,
-        usufoto: url,
-        usucelular: res.data.usucelular,
-      }
-      console.log(datos.usufoto);
-      axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/', datos).then(res => {
-        this.setState({
-          uploaded: "uploaded",
-        })
-        window.location.reload()
-      });
+    let datos = {
+      usufoto: url,
+    }
+    console.log(datos.usufoto);
+    axios.put('https://businessmanagerwebservice.herokuapp.com/api/usuarios/' + id + '/foto', datos).then(res => {
+      this.setState({
+        uploaded: "uploaded",
+      })
+      window.location.reload()
     });
   }
 
@@ -99,7 +89,7 @@ class ImageUpload extends Component {
           }
           <br/>
           {this.state.uploaded == "not uploaded" ?
-            <a onClick={this.props.closeImageUploader}>Cerrar</a>
+            <button className="closeButton" onClick={this.props.closeImageUploader}>X</button>
             : null
           }
         </div>

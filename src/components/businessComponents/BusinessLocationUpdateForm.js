@@ -38,25 +38,13 @@ export default class BusinessLocationUpdateForm extends Component {
   }
 
   handleSubmit(event) {
-    axios.get('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + this.props.businessId + '/').then(res => {
-      console.log(res.data);
-      let datos = {
-        negnombre: res.data.negnombre,
-        negdetalles: res.data.negdetalles,
-        negdireccion: res.data.negdireccion,
-        negemail: res.data.negemail,
-        negcodpostal: res.data.negcodpostal,
-        negpassword: res.data.password,
-        negcelular: res.data.negcelular,
-        neglogo: res.data.neglogo,
-        negestado: res.data.negestado,
-        negLong: this.state.negLong,
-        negLati: this.state.negLati
-      }
-      console.log(datos);
-      axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + this.props.businessId + '/' , datos).then(res => {
-        window.location.reload()
-      });
+    let datos = {
+      negLong: this.state.negLong,
+      negLati: this.state.negLati
+    }
+    console.log(datos);
+    axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + this.props.businessId + '/location' , datos).then(res => {
+      window.location.reload()
     });
   }
 

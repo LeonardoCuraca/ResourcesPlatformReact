@@ -1,0 +1,137 @@
+.back {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  background: rgba(0, 0, 0, .8);
+  background-size: cover;
+  height: 100vh;
+  width: 110%;
+  z-index: 3;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background: rgba(65, 68, 80, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skillsbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background: rgba(65, 68, 80, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skillsbox h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.skillsbox .inputBox input {
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  background: Transparent;
+}
+
+.box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.box .inputBox {
+  position: relative;
+}
+
+.box .inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  background: Transparent;
+}
+
+.skillsbox .addButton {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #03a9f4;
+  padding: 8px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.box .addButton {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #03a9f4;
+  padding: 8px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.registerLink {
+	text-decoration: none;
+	color: #36ab92;
+}
+
+.inputBox label {
+  color: #03a9f4;
+}
+
+.NewBusinessFormButton {
+  background-color: black;
+  padding: 8px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  border-radius: 2px 2px 2px 2px;
+  padding: 2px 6px 2px 6px;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 2px;
+}

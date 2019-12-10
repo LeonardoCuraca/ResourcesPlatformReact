@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import BusinessImageUpload from './BusinessImageUpload';
 import BusinessLocationUpdateForm from './BusinessLocationUpdateForm';
+import BusinessUpdateForm from './BusinessUpdateForm';
 import BusinessMap from './BusinessMap';
 import QrCodeComponent from './qrCodeGenerator';
 
@@ -23,6 +24,7 @@ export default class BusinessProfile extends Component {
         isdeleted: false,
         showBusinessImageUploader: false,
         showLocationForm: false,
+        showBusinessUpdateForm: false,
     }
     this.deleteBusiness = this.deleteBusiness.bind(this);
   }
@@ -63,7 +65,38 @@ export default class BusinessProfile extends Component {
     });
   }
 
+  toggleBusinessUpdateForm() {
+    this.setState({
+         showBusinessUpdateForm: !this.state.showBusinessUpdateForm
+    });
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem("business"+this.state.business.negid);
+  }
+
+  cambiarEstado() {
+    var id = this.state.business.negid;
+    if (this.state.business.negestado == "activo") {
+      let datos = {
+        negestado: "inactivo",
+      }
+      axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/estado', datos).then(res => {
+        window.location.reload();
+      })
+    }
+    if (this.state.business.negestado == "inactivo") {
+      let datos = {
+        negestado: "activo",
+      }
+      axios.put('https://businessmanagerwebservice.herokuapp.com/api/negocio/' + id + '/estado', datos).then(res => {
+        window.location.reload();
+      })
+    }
+  }
+
   render() {
+
     var center = {
       lat: this.state.business.negLati,
       lng: this.state.business.negLong
@@ -73,13 +106,21 @@ export default class BusinessProfile extends Component {
     if (this.state.isdeleted) {
       return <Redirect to={{pathname: '/myBusiness'}} />
     }
+
     return (
       <div className="BusinessProfile">
         <section className="banner-area" id="home">
           <img className="businessImage" src={this.state.business.neglogo}/>
+          {this.state.showBusinessUpdateForm ?
+            <BusinessUpdateForm
+                      closeBusinessUpdateForm = {this.toggleBusinessUpdateForm.bind(this)}
+                      businessId = {this.state.business.negid}
+            />
+            : null
+          }
           {this.state.showBusinessImageUploader ?
             <BusinessImageUpload
-                      closeBusinessImageUploader={this.toggleBusinessImageUploader.bind(this)}
+                      closeBusinessImageUploader = {this.toggleBusinessImageUploader.bind(this)}
                       id = {this.state.business.negid}
             />
             : null
@@ -93,6 +134,7 @@ export default class BusinessProfile extends Component {
           }
           <button className="BusinessImageUpdateButton" onClick={this.toggleBusinessImageUploader.bind(this)}><i className="far fa-image" aria-hidden="true"/></button>
           <button className="BusinessLocationButton" onClick={this.toggleLocationForm.bind(this)}><i className="fas fa-map-marker-alt" aria-hidden="true"/></button>
+          <button className="BusinessUpdateButton" onClick={this.toggleBusinessUpdateForm.bind(this)}><i className="fas fa-edit" aria-hidden="true"/></button>
           <div className="overlay overlay-bg" />
           <button onClick={this.deleteBusiness} className="deleteBusinessButton">Eliminar Negocio</button>
           <div className="container">
@@ -113,7 +155,9 @@ export default class BusinessProfile extends Component {
                 <p className="pt-10 pb-10 text-white">
                   Correo Electrónico: {this.state.business.negemail}
                 </p>
+                <button className="dashboardButton" onClick={() => this.cambiarEstado()}>{this.state.business.negestado}</button>
                 <a href={url} className="dashboardButton">Dashboard</a>
+                <a href="/myBusiness" className="dashboardButton" onClick={() => this.cerrarSesion()}>Cerrar Sesión de Negocio</a>
               </div>
             </div>
           </div>

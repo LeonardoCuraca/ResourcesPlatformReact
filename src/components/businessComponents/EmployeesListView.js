@@ -23,17 +23,6 @@ export default class EmployeesListView extends Component {
 
   render() {
 
-    var usernames = ["hi"];
-
-    for (var i = 0; i < this.state.employees.length; i++) {
-      axios.get('https://businessmanagerwebservice.herokuapp.com/api/usuarios/'+ this.state.employees[i].empusu +'/').then(res => {
-        usernames.push(res.data.usunombre)
-      });
-    }
-
-    console.log(usernames);
-    console.log(usernames[1]);
-
     return (
       <div>
         <div className="card-header">
@@ -49,17 +38,20 @@ export default class EmployeesListView extends Component {
               <th scope="col">Sueldo</th>
               <th scope="col">Inicio de Empleo</th>
               <th scope="col">Fin de Empleo</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {this.state.employees.map(employee => {
+              var url = "/myBusiness/employee/skills/" + employee.empusu;
               return(
                 <tr>
-                  <th><a href={'/userProfile/' + employee.empusu}>{usernames[0]}</a></th>
-                  <th>{employee.emparea}</th>
+                  <td><a href={'/userProfile/' + employee.empusu}>{employee.empnombre}</a></td>
+                  <td>{employee.emparea}</td>
                   <td>{employee.empsueldo}</td>
                   <td>{employee.empentrada}</td>
                   <td>{employee.empsalida}</td>
+                  <td><a className="calificarButton" href={url}>Calificar</a></td>
                 </tr>
               )
 

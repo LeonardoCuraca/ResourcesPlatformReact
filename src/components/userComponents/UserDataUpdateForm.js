@@ -94,18 +94,6 @@ export default class UserDataUpdateForm extends Component {
             <input type="text" value={this.state.usuapellido} onChange={this.changeLastName} />
             <label>Apellidos</label>
           </div>
-          <div className="radio-group">
-            <label className="radio">
-              <input type="radio" defaultValue="Masculino" />
-              Hombre
-              <span />
-            </label>
-            <label className="radio">
-              <input type="radio" defaultValue="Femenino" />
-              Mujer
-              <span />
-            </label>
-          </div>
           <div className="inputBox">
             <input type="text" value={this.state.usudetalle} onChange={this.changeDescription} />
             <label>Descripción</label>
@@ -118,7 +106,7 @@ export default class UserDataUpdateForm extends Component {
             <input type="text" value={this.state.usucelular} onChange={this.changePhone} />
             <label>Celular</label>
           </div>
-          <button className="addButton" onClick={this.handleSubmit}>Añadir</button><br/>
+          <button className="addButton" onClick={this.handleSubmit}>Aceptar</button><br/>
           <button className="closeButton" onClick={this.props.closePopup}>X</button>
         </div>
       </div>

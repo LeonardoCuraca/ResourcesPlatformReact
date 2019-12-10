@@ -16,6 +16,7 @@ export default class UserCardView extends Component {
     super(props);
     this.state = {
         business: [],
+        selectedBusinessId: "",
         showBusinessForm: false,
     }
   }
@@ -42,6 +43,11 @@ export default class UserCardView extends Component {
   }
 
   render() {
+    var selectedBusinessId;
+    function updateSelectedBusinessId(newid) {
+      selectedBusinessId = newid;
+      console.log(selectedBusinessId);
+    };
     return (
       <div  className="businessContainer">
         <button className="NewBusinessFormButton" onClick={this.toggleBusinessForm.bind(this)}>Crear Nuevo Negocio</button>
@@ -52,7 +58,7 @@ export default class UserCardView extends Component {
           : null
         }
         {this.state.business.map(business => {
-          var url = "/myBusiness/" + business.negid;
+          var url = "/myBusiness/login/" + business.negid;
           return(
             <a href={url}>
               <div className="businessCard">

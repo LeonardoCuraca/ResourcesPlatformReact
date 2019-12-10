@@ -26,8 +26,8 @@ export default class UserProfile extends Component {
           </section>
           <AreaChart
             businessId = {this.props.match.params.businessId}/>
-          <PieChart/>
-          <SplineChart/>
+          <SplineChart
+            businessId = {this.props.match.params.businessId}/>
         </div>
       </div>
     );

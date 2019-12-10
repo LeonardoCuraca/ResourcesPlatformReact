@@ -68,19 +68,21 @@ export default class MailBox extends Component {
                             solid = {request.solid}
                             businessId = {this.props.businessId}
                             soliusu = {request.soliusu}
+                            soliname = {request.solinombre}
+                            soliapellido = {request.soliapellido}
                   />
                   : null
                 }
                 <div className="row no-gutters">
                   <div className="col-md-4">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/businessmanagerfilestorage.appspot.com/o/images%2Fmovil.png?alt=media&token=91cb33aa-eb81-4d87-9969-da3cbd8da912" className="card-img"/>
+                    <img src={request.soliimage} className="card-img"/>
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
                       <h5 className="card-title"><a className="requestName" href={'/userProfile/' + request.soliusu}>{request.solinombre} {request.soliapellido}</a></h5>
                       <p className="card-text">{request.solimensaje}</p>
                       <p className="requestInfo"><small className="text-muted">Email: {request.soliemail}</small></p>
-                      <p className="requestInfo"><small className="text-muted">Celular: {request.solilcelular}</small></p>
+                      <p className="requestInfo"><small className="text-muted">Celular: {request.solicelular}</small></p>
                     </div>
                     <div className="card-body">
                       <button className="confirmButton" onClick={this.toggleEmployeeAddForm.bind(this)}>Agregar</button>

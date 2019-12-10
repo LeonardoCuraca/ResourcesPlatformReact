@@ -13,6 +13,7 @@ export default class EmployeeRequest extends Component {
         solicelular: "",
         soliemail: "",
         solimensaje: "",
+        soliimage: "",
     }
     this.changeName = this.changeName.bind(this);
     this.changeLastName = this.changeLastName.bind(this);
@@ -67,6 +68,7 @@ export default class EmployeeRequest extends Component {
         soliapellido: res.data.usuapellido,
         solicelular: res.data.usucelular,
         soliemail: res.data.usuemail,
+        soliimage: res.data.usufoto,
       },
     function() {
     });
@@ -82,6 +84,7 @@ export default class EmployeeRequest extends Component {
       solimensaje: this.state.solimensaje,
       soliusu: JSON.parse(localStorage.getItem("userInfo")).userID,
       solineg: this.props.businessId,
+      soliimage: this.state.soliimage,
     }
     axios.post('https://businessmanagerwebservice.herokuapp.com/api/solicitudes/', data).then(res => {
       console.log(res);

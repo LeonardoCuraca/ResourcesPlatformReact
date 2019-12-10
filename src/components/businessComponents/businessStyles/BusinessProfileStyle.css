@@ -1,6 +1,7 @@
 .banner-area {
   background-size: cover;
   position: relative;
+  height: 100vh;
 }
 
 .businessImage {
@@ -50,6 +51,8 @@
   font-size: 14px;
   font-weight: 600;
   font-family: sans-serif;
+  display: inline-block;
+  margin-left: 16px;
   text-decoration: none;
   border-radius: 4px;
   padding: 15px 30px;
@@ -93,6 +96,19 @@
   transition: 0.5s;
 }
 
+.BusinessUpdateButton {
+  position: absolute;
+  padding: 8px 10px;
+  border-radius: 0 0 0 8px;
+  float: right;
+  right: 0;
+  font-size: 20px;
+  color: #fff;
+  z-index: 1;
+  background-color: #000;
+  transition: 0.5s;
+}
+
 .BusinessLocationButton {
   position: absolute;
   padding: 8px 10px;
@@ -106,7 +122,7 @@
   transition: 0.5s;
 }
 
-.BusinessLocationButton:hover, .BusinessImageUpdateButton:hover {
+.BusinessLocationButton:hover, .BusinessImageUpdateButton:hover, .BusinessUpdateButton:hover {
   font-size: 22px;
   padding: 10px, 12px;
 }
